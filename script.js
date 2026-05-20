@@ -1,4 +1,4 @@
-
+// We selecteren de knoppen en de output elementen
 const steenBtn = document.querySelector("#steen");
 const papierBtn = document.querySelector("#papier");
 const schaarBtn = document.querySelector("#schaar");
@@ -8,19 +8,19 @@ const computerOutput = document.querySelector("#computer");
 const humanOutput = document.querySelector("#human");
 const resultOutput = document.querySelector("#result");
 
-
+// We zetten de output elementen klaar voor het begin van het spel
 humanOutput.innerHTML = "Maak je keuze!";
 computerOutput.innerHTML = "-";
 resultOutput.innerHTML = "-";
 
 
-
+// Deze functie krijgt de keuze van de speler mee als parameter
 function speelSpel(keuze) {
 
     
     const randomNumber = Math.floor(Math.random() * 3) + 1;
 
-   
+   //de keuze vn de computer bepalen op basis van een random getal
     let computerChoice = "";
 
     if (randomNumber === 1) {
@@ -33,11 +33,11 @@ function speelSpel(keuze) {
         computerChoice = "schaar";
     }
 
-   
+
     humanOutput.innerHTML = keuze;
     computerOutput.innerHTML = computerChoice;
 
-
+ // dit checkt of het gelijkspel is, 
     if (keuze === computerChoice) {
         resultOutput.innerHTML = "gelijkspel!";
     }
@@ -61,7 +61,7 @@ function speelSpel(keuze) {
 
 
 
-
+// listener toevoegen aan de knoppen zodat ze kunnen reageren op clicks
 steenBtn.addEventListener("click", function() {
     speelSpel("steen");
 });
