@@ -1,8 +1,9 @@
+// dit zorgt ervoor dat de elementen in de HTML worden opgehaald en in JavaScript kunnen worden gebruikt
 const computerOutput = document.querySelector("#computer");
 const humanOutput = document.querySelector("#human");
 const resultOutput = document.querySelector("#result");
 
-// nieuw: score elementen (moet je ook in HTML hebben)
+// elementen voor de score 
 const humanScoreOutput = document.querySelector("#humanScore");
 const computerScoreOutput = document.querySelector("#computerScore");
 
@@ -14,7 +15,7 @@ resultOutput.innerHTML = "-";
 let humanScore = 0;
 let computerScore = 0;
 
-
+// speel functie die wordt aangeroepen wanneer een knop wordt geklikt
 function speelSpel(keuze) {
 
     const randomNumber = Math.floor(Math.random() * 3) + 1;
