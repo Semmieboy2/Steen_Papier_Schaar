@@ -63,6 +63,7 @@ function speelSpel(keuze) {
 
 
 // 1 event handler voor alle knoppen 
+const buttons = document.querySelectorAll("#steen, #papier, #schaar");
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
         speelSpel(button.id);
