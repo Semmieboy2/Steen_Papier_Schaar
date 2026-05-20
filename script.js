@@ -1,50 +1,75 @@
-// knoppen
+
 const steenBtn = document.querySelector("#steen");
 const papierBtn = document.querySelector("#papier");
 const schaarBtn = document.querySelector("#schaar");
 
-// output
+
 const computerOutput = document.querySelector("#computer");
 const humanOutput = document.querySelector("#human");
 const resultOutput = document.querySelector("#result");
 
-// begintekst
+
 humanOutput.innerHTML = "Maak je keuze!";
 computerOutput.innerHTML = "-";
 resultOutput.innerHTML = "-";
 
-// computer keuze bepalen
-function getComputerChoice() {
-    const keuzes = ["steen", "papier", "schaar"];
-    const randomIndex = Math.floor(Math.random() * 3);
-    return keuzes[randomIndex];
-}
 
-// spel logica
-function playGame(humanChoice) {
-    const computerChoice = getComputerChoice();
 
-    // output keuzes
-    humanOutput.innerHTML = humanChoice;
+function speelSpel(keuze) {
+
+    
+    const randomNumber = Math.floor(Math.random() * 3) + 1;
+
+   
+    let computerChoice = "";
+
+    if (randomNumber === 1) {
+        computerChoice = "steen";
+    }
+    if (randomNumber === 2) {
+        computerChoice = "papier";
+    }
+    if (randomNumber === 3) {
+        computerChoice = "schaar";
+    }
+
+   
+    humanOutput.innerHTML = keuze;
     computerOutput.innerHTML = computerChoice;
 
-    // bepalen winnaar
-    if (humanChoice === computerChoice) {
+
+    if (keuze === computerChoice) {
         resultOutput.innerHTML = "gelijkspel!";
-    } 
-    else if (
-        (humanChoice === "steen" && computerChoice === "schaar") ||
-        (humanChoice === "papier" && computerChoice === "steen") ||
-        (humanChoice === "schaar" && computerChoice === "papier")
-    ) {
+    }
+
+    // Daarna checken we alle situaties waarin de speler wint
+    else if (keuze === "steen" && computerChoice === "schaar") {
         resultOutput.innerHTML = "jij wint!";
-    } 
+    }
+    else if (keuze === "papier" && computerChoice === "steen") {
+        resultOutput.innerHTML = "jij wint!";
+    }
+    else if (keuze === "schaar" && computerChoice === "papier") {
+        resultOutput.innerHTML = "jij wint!";
+    }
+
+    
     else {
         resultOutput.innerHTML = "computer wint!";
     }
 }
 
-// event listeners (allemaal dezelfde functie!)
-steenBtn.addEventListener("click", () => playGame("steen"));
-papierBtn.addEventListener("click", () => playGame("papier"));
-schaarBtn.addEventListener("click", () => playGame("schaar"));
+
+
+
+steenBtn.addEventListener("click", function() {
+    speelSpel("steen");
+});
+
+papierBtn.addEventListener("click", function() {
+    speelSpel("papier");
+});
+
+schaarBtn.addEventListener("click", function() {
+    speelSpel("schaar");
+});
