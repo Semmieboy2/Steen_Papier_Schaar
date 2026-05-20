@@ -48,10 +48,10 @@ function speelSpel(keuze) {
 }
 
 
-// 👉 alle knoppen in 1 keer selecteren
+//  alle knoppen in 1 keer selecteren
 const buttons = document.querySelectorAll("button");
 
-// 👉 1 event handler voor alles
+//  1 event handler voor alles
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
         speelSpel(button.id); // gebruikt id (steen/papier/schaar)
