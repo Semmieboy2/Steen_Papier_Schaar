@@ -1,7 +1,3 @@
-const steenBtn = document.querySelector("#steen");
-const papierBtn = document.querySelector("#papier");
-const schaarBtn = document.querySelector("#schaar");
-
 const computerOutput = document.querySelector("#computer");
 const humanOutput = document.querySelector("#human");
 const resultOutput = document.querySelector("#result");
@@ -11,25 +7,30 @@ computerOutput.innerHTML = "-";
 resultOutput.innerHTML = "-";
 
 
-// functie voor het spel
 function speelSpel(keuze) {
 
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let computerChoice = "";
 
-    if (randomNumber === 1) {
-        computerChoice = "steen";
-    }
-    if (randomNumber === 2) {
-        computerChoice = "papier";
-    }
-    if (randomNumber === 3) {
-        computerChoice = "schaar";
+    //  switch in plaats van if
+    switch (randomNumber) {
+        case 1:
+            computerChoice = "steen";
+            break;
+        case 2:
+            computerChoice = "papier";
+            break;
+        case 3:
+            computerChoice = "schaar";
+            break;
+        default:
+            computerChoice = "steen"; // fallback (voor de zekerheid)
     }
 
     humanOutput.innerHTML = keuze;
     computerOutput.innerHTML = computerChoice;
 
+    // win/verlies logica 
     if (keuze === computerChoice) {
         resultOutput.innerHTML = "gelijkspel!";
     }
@@ -48,13 +49,11 @@ function speelSpel(keuze) {
 }
 
 
-//  alle knoppen in 1 keer selecteren
+// 1 event handler voor alle knoppen
 const buttons = document.querySelectorAll("button");
 
-//  1 event handler voor alles
 buttons.forEach(function(button) {
     button.addEventListener("click", function() {
-        speelSpel(button.id); // gebruikt id (steen/papier/schaar)
+        speelSpel(button.id);
     });
 });
-``
