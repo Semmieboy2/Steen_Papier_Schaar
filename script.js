@@ -2,9 +2,17 @@ const computerOutput = document.querySelector("#computer");
 const humanOutput = document.querySelector("#human");
 const resultOutput = document.querySelector("#result");
 
+// nieuw: score elementen (moet je ook in HTML hebben)
+const humanScoreOutput = document.querySelector("#humanScore");
+const computerScoreOutput = document.querySelector("#computerScore");
+
 humanOutput.innerHTML = "Maak je keuze!";
 computerOutput.innerHTML = "-";
 resultOutput.innerHTML = "-";
+
+// score bijhouden
+let humanScore = 0;
+let computerScore = 0;
 
 
 function speelSpel(keuze) {
@@ -12,7 +20,6 @@ function speelSpel(keuze) {
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let computerChoice = "";
 
-    //  switch in plaats van if
     switch (randomNumber) {
         case 1:
             computerChoice = "steen";
@@ -23,29 +30,34 @@ function speelSpel(keuze) {
         case 3:
             computerChoice = "schaar";
             break;
-        default:
-            computerChoice = "steen"; // fallback (voor de zekerheid)
     }
 
     humanOutput.innerHTML = keuze;
     computerOutput.innerHTML = computerChoice;
 
-    // win/verlies logica 
     if (keuze === computerChoice) {
         resultOutput.innerHTML = "gelijkspel!";
     }
     else if (keuze === "steen" && computerChoice === "schaar") {
         resultOutput.innerHTML = "jij wint!";
+        humanScore++; // score omhoog
     }
     else if (keuze === "papier" && computerChoice === "steen") {
         resultOutput.innerHTML = "jij wint!";
+        humanScore++;
     }
     else if (keuze === "schaar" && computerChoice === "papier") {
         resultOutput.innerHTML = "jij wint!";
+        humanScore++;
     }
     else {
         resultOutput.innerHTML = "computer wint!";
+        computerScore++; // score computer omhoog
     }
+
+    // score laten zien op scherm
+    humanScoreOutput.innerHTML = humanScore;
+    computerScoreOutput.innerHTML = computerScore;
 }
 
 
