@@ -17,10 +17,10 @@ let computerScore = 0;
 
 // speel functie die wordt aangeroepen wanneer een knop wordt geklikt
 function speelSpel(keuze) {
-
+// computer maakt een random keuze
     const randomNumber = Math.floor(Math.random() * 3) + 1;
     let computerChoice = "";
-
+// computer keuze bepalen op basis van random number
     switch (randomNumber) {
         case 1:
             computerChoice = "steen";
@@ -32,10 +32,10 @@ function speelSpel(keuze) {
             computerChoice = "schaar";
             break;
     }
-
+// keuzes laten zien op scherm
     humanOutput.innerHTML = keuze;
     computerOutput.innerHTML = computerChoice;
-
+// bepalen wie er wint
     if (keuze === computerChoice) {
         resultOutput.innerHTML = "gelijkspel!";
     }
