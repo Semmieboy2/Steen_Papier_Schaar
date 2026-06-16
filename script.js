@@ -10,7 +10,7 @@ const humanScoreOutput = document.querySelector("#humanScore");
 const computerScoreOutput = document.querySelector("#computerScore");
 
 
-
+// beginwaarden voor de output
 humanOutput.innerHTML = "Maak je keuze!";
 computerOutput.innerHTML = "-";
 resultOutput.innerHTML = "-";
@@ -83,6 +83,7 @@ buttons.forEach(function(button) {
         speelSpel(button.id);
     });
 });
+// functie om confetti te laten zien bij winst
 function gooiConfetti() {
     confetti({
         particleCount: 100,
