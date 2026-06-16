@@ -8,3 +8,18 @@
 .keuze-img:hover {
     transform: scale(1.1);
 }
+
+body {
+    text-align: center;
+}
+
+.keuze-container {
+    display: flex;
+    justify-content: center; /* midden zetten */
+    gap: 20px; /* ruimte tussen afbeeldingen */
+}
+
+.keuze-img {
+    width: 100px;
+    cursor: pointer;
+}
