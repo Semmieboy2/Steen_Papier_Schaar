@@ -1,3 +1,5 @@
+const winSound = new Audio("yippee-tbh.mp3"); // geluidseffect voor winst
+
 // dit zorgt ervoor dat de elementen in de HTML worden opgehaald en in JavaScript kunnen worden gebruikt
 const computerOutput = document.querySelector("#computer");
 const humanOutput = document.querySelector("#human");
@@ -6,6 +8,8 @@ const resultOutput = document.querySelector("#result");
 // elementen voor de score 
 const humanScoreOutput = document.querySelector("#humanScore");
 const computerScoreOutput = document.querySelector("#computerScore");
+
+
 
 humanOutput.innerHTML = "Maak je keuze!";
 computerOutput.innerHTML = "-";
@@ -43,16 +47,23 @@ function speelSpel(keuze) {
         resultOutput.innerHTML = "jij wint!";
         humanScore++; // score omhoog
         gooiConfetti();
+        winSound.play();
+        winSound.volume = 1; 
     }
     else if (keuze === "papier" && computerChoice === "steen") {
         resultOutput.innerHTML = "jij wint!";
-        gooiConfetti();
         humanScore++;
+        gooiConfetti();
+        winSound.play();
+        winSound.volume = 1;
     }
     else if (keuze === "schaar" && computerChoice === "papier") {
         resultOutput.innerHTML = "jij wint!";
-        gooiConfetti();
         humanScore++;
+        gooiConfetti();
+        winSound.play();
+        winSound.volume = 1;
+        
     }
     else {
         resultOutput.innerHTML = "computer wint!";
