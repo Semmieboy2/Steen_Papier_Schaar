@@ -42,13 +42,16 @@ function speelSpel(keuze) {
     else if (keuze === "steen" && computerChoice === "schaar") {
         resultOutput.innerHTML = "jij wint!";
         humanScore++; // score omhoog
+        gooiConfetti();
     }
     else if (keuze === "papier" && computerChoice === "steen") {
         resultOutput.innerHTML = "jij wint!";
+        gooiConfetti();
         humanScore++;
     }
     else if (keuze === "schaar" && computerChoice === "papier") {
         resultOutput.innerHTML = "jij wint!";
+        gooiConfetti();
         humanScore++;
     }
     else {
@@ -69,3 +72,10 @@ buttons.forEach(function(button) {
         speelSpel(button.id);
     });
 });
+function gooiConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+}
